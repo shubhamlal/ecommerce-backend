@@ -11,5 +11,6 @@ agent any
             path: '', url: 'http://ec2-3-235-160-246.compute-1.amazonaws.com:8080/')],
             contextPath: 'Backend-Eccomerce', war: '**/java-web-project.war'
         }
-      }
+       }
+     }
 }
