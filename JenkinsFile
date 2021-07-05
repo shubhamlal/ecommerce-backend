@@ -1,0 +1,16 @@
+pipeline{
+agent any
+    stages{
+        stage('Build') {
+
+            hs "mvn clean package"
+        }
+       stage('Deploy') {
+        steps {
+            deploy adapters: [tomcat7(credentialsId: '8001cbb4-15d6-4ba5-bf60-d5615f81813d',
+            path: '', url: 'http://ec2-3-235-160-246.compute-1.amazonaws.com:8080/')],
+            contextPath: 'Backend-Eccomerce', war: '**/java-web-project.war'
+        }
+       }
+    }
+}
